@@ -1,0 +1,23 @@
+{% extends 'home.html'%}
+{% load static %}
+
+{% block content %}
+
+    <div class="row mt-5">
+        {%for produit in liste_produit%}
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                <img class="thumbnail p-2" src="{{produit.imageUrl}}" style="height: 200px; width: 150;">
+                <div class="box">
+                    <h6><strong>{{produit.nom}}</strong></h6><hr>
+                    <button data-produit={{produit.id}} data-action="add" class="btn btn-outline-secondary  demo">Add to Cart</button>
+                    <a class="btn btn-outline-success" href="#">Views</a>
+                    <h4 style="display: inline-block; float: right"><strong>${{produit.prix|floatformat:2}}</strong></h4>
+                </div>
+
+            </div>
+        {%endfor%}
+
+    </div>
+
+    
+{% endblock %}
